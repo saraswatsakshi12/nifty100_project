@@ -1,0 +1,4 @@
+rule,message,severity
+DQ-01,Duplicate company_id,CRITICAL
+DQ-02,Duplicate company year,CRITICAL
+DQ-06,Negative sales,WARNING
