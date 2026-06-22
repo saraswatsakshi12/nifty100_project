@@ -74,3 +74,32 @@ if __name__=="__main__":
     print(
         "Excel Loader Ready"
     )
+import sqlite3
+
+
+def get_connection():
+
+    conn = sqlite3.connect(
+        "nifty100.db"
+    )
+
+    conn.execute(
+        "PRAGMA foreign_keys = ON"
+    )
+
+    return conn
+
+
+def save_to_db(df, table):
+
+    conn = get_connection()
+
+    df.to_sql(
+        table,
+        conn,
+        if_exists="append",
+        index=False
+    )
+
+    conn.close()
+
