@@ -21,7 +21,10 @@ class ExcelLoader:
 
     def load_excel(self):
 
-        return pd.read_excel(self.path)
+        return pd.read_excel(
+            self.path,
+            header=1
+        )
 
 
     def clean_columns(self, df):
@@ -34,7 +37,6 @@ class ExcelLoader:
         )
 
         return df
-
 
     def normalize(self, df):
 
@@ -103,7 +105,10 @@ def load_files():
 
         if os.path.exists(file):
 
-            df=pd.read_excel(file)
+            df = pd.read_excel(
+    		 file,
+   		 header=1
+	    )
 
             df.to_sql(
                 table,
