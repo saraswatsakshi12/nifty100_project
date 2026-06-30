@@ -62,6 +62,8 @@ kpi = df[
     ]
 ]
 
+kpi = kpi.fillna(0)
+
 kpi.to_csv(
     "output/kpi_metrics.csv",
     index=False
